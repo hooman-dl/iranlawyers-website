@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verification &mdash; Iran Lawyers</title>
+  <meta name="description" content="How we verify Iranian lawyers. The methodology, no marketing language."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .verify-steps { display:flex;flex-direction:column;gap:1.25rem;margin:2.5rem 0; }
+    .verify-step {
+      display:flex;gap:1.5rem;align-items:flex-start;background:#fff;
+      border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;
+      box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+    }
+    .verify-step:hover { transform:translateX(4px);box-shadow:var(--shadow-lg); }
+    .step-icon { width:52px;height:52px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,rgba(232,64,28,.12),rgba(201,147,42,.12));display:flex;align-items:center;justify-content:center;font-size:1.5rem; }
+    .verify-step h3 { font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.4rem; }
+    .verify-step p { font-size:.9rem;color:var(--muted);line-height:1.65; }
+    .info-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2.5rem; }
+    .info-box { background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow); }
+    .info-box h3 { font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.5rem; }
+    .info-box p { font-size:.875rem;color:var(--muted);line-height:1.65; }
+    .badge-demo { display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:#1a8f4a;background:rgba(26,143,74,.08);padding:.3rem .75rem;border-radius:20px;border:1px solid rgba(26,143,74,.2);margin:.5rem 0;font-family:monospace; }
+    .badge-demo::before { content:'&#10003;';font-weight:800; }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">IL</span>Iran Lawyers</a>
+    <ul>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="submit.html">Add a Listing</a></li>
+      <li><a href="principles.html">Our Promise</a></li>
+      <li><a href="verify.html" class="active">Verification</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="page-header-label">Transparency</span>
+    <h1>How we verify</h1>
+    <p>The methodology. No marketing language.</p>
+  </div>
+
+  <section class="content">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:2rem;">
+        <span class="section-label">What we check before publishing</span>
+        <h2 class="section-title">Two things, in this order</h2>
+        <p class="section-sub">&ldquo;Verified&rdquo; only means something if you can see what was checked, when, and against what.</p>
+      </div>
+
+      <div class="verify-steps reveal">
+        <div class="verify-step">
+          <div class="step-icon">&#x1F4DC;</div>
+          <div>
+            <h3>Step 1 &mdash; Sight the practising certificate</h3>
+            <p>The applicant emails a current practising certificate (or local equivalent &mdash; Anwaltsausweis, Carte d'avocat, State Bar card). We confirm name, registration number, regulator, and expiry date.</p>
+          </div>
+        </div>
+        <div class="verify-step">
+          <div class="step-icon">&#x1F50D;</div>
+          <div>
+            <h3>Step 2 &mdash; Cross-check against the regulator's public register</h3>
+            <p>For jurisdictions where the regulator publishes a searchable register online &mdash; the SRA (England &amp; Wales), state bars (US), provincial law societies (Canada), Anwaltskammern (Germany), Conseil National des Barreaux (France) &mdash; we look the practitioner up and confirm they are currently registered and in good standing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:3.5rem;margin-bottom:1rem;">
+        <span class="section-label">Details</span>
+        <h2 class="section-title">What the badge means &mdash; and doesn't</h2>
+      </div>
+
+      <div class="info-grid reveal">
+        <div class="info-box">
+          <h3>What it means</h3>
+          <div class="badge-demo">Credentials verified 2026-05-17 against SRA</div>
+          <p style="margin-top:.75rem;">We completed both steps on that date against that regulator. The regulator's URL is linked on each profile so you can re-check yourself.</p>
+        </div>
+        <div class="info-box">
+          <h3>What it doesn't mean</h3>
+          <p>Not a recommendation. Not an endorsement. It doesn't mean the lawyer is currently good at their job, free of complaints, or right for your matter. It means their registration was valid on the date shown.</p>
+        </div>
+        <div class="info-box">
+          <h3>When we can't fully verify</h3>
+          <p>If the regulator has no online public register, we publish <em>"Credentials sighted [date], regulator's register not public"</em> &mdash; we say so explicitly rather than pretending otherwise.</p>
+        </div>
+        <div class="info-box">
+          <h3>Re-verification schedule</h3>
+          <p>Every twelve months we re-verify each listing. Listings that fail re-verification are taken down within seven days.</p>
+        </div>
+        <div class="info-box">
+          <h3>Report an inaccurate listing</h3>
+          <p>Wrong details, lapsed registration, struck off, or impersonation? Email <a href="mailto:contact@iranlawyers.org" style="color:var(--flame);">contact@iranlawyers.org</a>. We acknowledge within 48 hours and act within seven days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Iran Lawyers &mdash; Free community directory. Not legal advice. &nbsp;&middot;&nbsp; <a href="about.html">About</a> &nbsp;&middot;&nbsp; <a href="principles.html">Principles</a></footer>
+  <script src="main.js"></script>
+</body>
+</html>
