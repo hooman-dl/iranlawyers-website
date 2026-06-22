@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About &mdash; Iran Lawyers</title>
+  <meta name="description" content="About Iran Lawyers. Why this exists. Built because it didn't exist."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem;
+    }
+    @media(max-width:700px){.about-grid{grid-template-columns:1fr;}}
+    .about-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 2.25rem; box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s; position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--flame),var(--gold));
+      transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+    }
+    .about-card:hover { transform:translateY(-5px);box-shadow:var(--shadow-lg); }
+    .about-card:hover::before { transform:scaleX(1); }
+    .about-card h3 { font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:.75rem; }
+    .about-card p { font-size:.95rem;color:var(--muted);line-height:1.7; }
+    .about-card.full { grid-column:1/-1; }
+    .contact-strip {
+      background: linear-gradient(135deg, var(--ink), #2E1810);
+      border-radius: var(--radius); padding: 2.5rem;
+      text-align: center; margin-top: 3rem; position: relative; overflow: hidden;
+    }
+    .contact-strip::before {
+      content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+      width:400px;height:300px;border-radius:50%;
+      background:radial-gradient(circle,rgba(232,64,28,.2),transparent 70%);
+    }
+    .contact-strip h3 { font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.5rem;position:relative;z-index:1; }
+    .contact-strip p { color:rgba(255,255,255,.6);margin-bottom:1.5rem;position:relative;z-index:1; }
+    .contact-strip a.btn-primary { position:relative;z-index:1; }
+    .stat-row { display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2rem;margin-bottom:3rem; }
+    .stat-item { text-align:center; }
+    .stat-item .num { font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--flame),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1; }
+    .stat-item .lbl { font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:.25rem; }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">IL</span>Iran Lawyers</a>
+    <ul>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="submit.html">Add a Listing</a></li>
+      <li><a href="principles.html">Our Promise</a></li>
+      <li><a href="verify.html">Verification</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="page-header-label">Our story</span>
+    <h1>About Iran Lawyers</h1>
+    <p>Why this exists.</p>
+  </div>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="stat-row reveal">
+        <div class="stat-item"><div class="num">11</div><div class="lbl">Countries</div></div>
+        <div class="stat-item"><div class="num">100%</div><div class="lbl">Verified</div></div>
+        <div class="stat-item"><div class="num">Free</div><div class="lbl">Forever</div></div>
+        <div class="stat-item"><div class="num">$0</div><div class="lbl">Listing fees</div></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <h3>The problem</h3>
+          <p>Most directories sell rankings to the highest bidder. Iranian diaspora clients &mdash; navigating immigration, family law across borders, sanctions, inheritance &mdash; need to find a lawyer they can trust, not the one who paid the most.</p>
+          <p style="margin-top:.75rem;font-weight:700;color:var(--flame);">We built this because it didn't exist.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>What we are</h3>
+          <p>A free, community-run directory of Iranian lawyers worldwide. Every listing is verified against the relevant regulator's public register before it appears. No fees. No tiers. No bought rankings.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>What we are not</h3>
+          <p>We are not a law firm. We do not provide legal advice. We do not recommend or endorse individual lawyers. We do not accept reviews or paid placements. Engaging a lawyer is your own decision.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>Who runs it</h3>
+          <p>Volunteers from the Iranian diaspora community. No agency. No marketing company. No hidden owner. Run for the community, by the community. If it ever stops being that, it should stop existing.</p>
+        </div>
+      </div>
+
+      <div class="contact-strip reveal">
+        <h3>Get in touch</h3>
+        <p>Listing inquiries, corrections, or reports &mdash; we'd like to hear from you.</p>
+        <a href="mailto:contact@iranlawyers.org" class="btn-primary">contact@iranlawyers.org</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>Iran Lawyers &mdash; Free community directory. Not legal advice. &nbsp;&middot;&nbsp; <a href="about.html">About</a> &nbsp;&middot;&nbsp; <a href="principles.html">Principles</a></footer>
+  <script src="main.js"></script>
+</body>
+</html>
