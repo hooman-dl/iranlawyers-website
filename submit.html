@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Your Listing &mdash; Iran Lawyers</title>
+  <meta name="description" content="Add your listing to the Iran Lawyers directory. Free. Takes about three minutes. We verify before publishing."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .form-card {
+      background:#fff;border:1px solid var(--border);border-radius:20px;
+      padding:3rem;box-shadow:var(--shadow-lg);
+      animation:fade-up .7s .2s ease both;
+    }
+    .notice-box {
+      background:rgba(232,64,28,.06);border:1px solid rgba(232,64,28,.2);
+      border-radius:10px;padding:1rem 1.25rem;
+      font-size:.875rem;color:var(--muted);margin-bottom:2rem;line-height:1.65;
+    }
+    .notice-box strong { color:var(--ink); }
+    .form-row { display:grid;grid-template-columns:1fr 1fr;gap:1.25rem; }
+    @media(max-width:600px){.form-row{grid-template-columns:1fr;}}
+    .consent-box {
+      background:var(--cream);border:1.5px solid var(--border);border-radius:10px;
+      padding:1rem 1.25rem;font-size:.875rem;color:var(--muted);
+      margin-bottom:1.5rem;line-height:1.65;
+    }
+    .form-step {
+      display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;
+    }
+    .step-num {
+      width:28px;height:28px;border-radius:50%;background:var(--flame);
+      color:#fff;font-size:.78rem;font-weight:800;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    }
+    .step-label { font-size:.95rem;font-weight:700;color:var(--ink); }
+    .divider { border:none;border-top:1px solid var(--border);margin:2rem 0; }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">IL</span>Iran Lawyers</a>
+    <ul>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="submit.html" class="active">Add a Listing</a></li>
+      <li><a href="principles.html">Our Promise</a></li>
+      <li><a href="verify.html">Verification</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="page-header-label">Join the directory</span>
+    <h1>Add your listing</h1>
+    <p>Free. Takes about three minutes. We verify before publishing.</p>
+  </div>
+
+  <section class="content">
+    <div class="container-sm">
+      <div class="form-card reveal">
+        <div class="notice-box">
+          <strong>Before you start:</strong> You must be a currently registered lawyer with a regulator we can verify against.
+          We sight your practising certificate and check the regulator's public register before publishing.
+          Listings that fail verification are not published and the information is destroyed.
+        </div>
+
+        <form id="listingForm" onsubmit="handleSubmit(event)">
+          <div class="form-step"><div class="step-num">1</div><div class="step-label">Your details</div></div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full name <span class="req">*</span></label>
+              <input type="text" name="fullname" required placeholder="e.g. Dara Ahmadi"/>
+            </div>
+            <div class="form-group">
+              <label>Firm or chambers <span style="font-weight:400;color:var(--muted)">(if applicable)</span></label>
+              <input type="text" name="firm" placeholder="e.g. Ahmadi &amp; Partners"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Country of practice <span class="req">*</span></label>
+              <select name="country" required>
+                <option value="">Select country&hellip;</option>
+                <option>Australia</option><option>Austria</option><option>Belgium</option>
+                <option>Canada</option><option>France</option><option>Germany</option>
+                <option>Iran</option><option>Italy</option><option>Netherlands</option>
+                <option>Norway</option><option>Sweden</option><option>Switzerland</option>
+                <option>Turkey</option><option>United Arab Emirates</option>
+                <option>United Kingdom</option><option>United States</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>City <span class="req">*</span></label>
+              <input type="text" name="city" required placeholder="e.g. London"/>
+            </div>
+          </div>
+
+          <hr class="divider"/>
+          <div class="form-step"><div class="step-num">2</div><div class="step-label">Verification details</div></div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Regulator / Bar association <span class="req">*</span></label>
+              <input type="text" name="regulator" required placeholder="e.g. SRA, State Bar of California"/>
+            </div>
+            <div class="form-group">
+              <label>Registration / Bar number <span class="req">*</span></label>
+              <input type="text" name="barnumber" required placeholder="e.g. 123456"/>
+              <div class="hint">We check this against the regulator's public register.</div>
+            </div>
+          </div>
+
+          <hr class="divider"/>
+          <div class="form-step"><div class="step-num">3</div><div class="step-label">Practice information</div></div>
+
+          <div class="form-group">
+            <label>Practice areas <span class="req">*</span></label>
+            <input type="text" name="areas" required placeholder="Comma-separated. List up to six. e.g. Immigration, Family law"/>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Languages spoken <span class="req">*</span></label>
+              <input type="text" name="languages" required placeholder="e.g. Farsi, English, German"/>
+            </div>
+            <div class="form-group">
+              <label>Years in practice</label>
+              <input type="number" name="years" min="0" max="70" placeholder="e.g. 12"/>
+            </div>
+          </div>
+
+          <hr class="divider"/>
+          <div class="form-step"><div class="step-num">4</div><div class="step-label">Contact &amp; profile</div></div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Contact email <span class="req">*</span></label>
+              <input type="email" name="email" required placeholder="your@email.com"/>
+            </div>
+            <div class="form-group">
+              <label>Contact phone</label>
+              <input type="tel" name="phone" placeholder="+1 555 000 0000"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Website</label>
+            <input type="url" name="website" placeholder="https://"/>
+          </div>
+
+          <div class="form-group">
+            <label>Short bio</label>
+            <textarea name="bio" placeholder="A brief description of your practice, specialisms, and background&hellip;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Accepting referrals from other lawyers in the network?</label>
+            <select name="referrals">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="consent-box">
+            I confirm I am a currently registered lawyer, the information above is accurate, and I consent to it being verified and published on this directory.
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1.05rem;padding:1rem 2rem;">
+            Submit listing &rarr;
+          </button>
+        </form>
+
+        <div id="success" style="display:none;text-align:center;padding:3rem 1rem;">
+          <div style="font-size:3rem;margin-bottom:1rem;">&#x2705;</div>
+          <h2 style="font-weight:800;margin-bottom:.75rem;">Listing received!</h2>
+          <p style="color:var(--muted);">We'll review your submission and be in touch within a few business days to complete verification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Iran Lawyers &mdash; Free community directory. Not legal advice. &nbsp;&middot;&nbsp; <a href="about.html">About</a> &nbsp;&middot;&nbsp; <a href="principles.html">Principles</a></footer>
+
+  <script src="main.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('listingForm').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
