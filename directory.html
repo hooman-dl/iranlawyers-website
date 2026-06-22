@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Directory &mdash; Iran Lawyers</title>
+  <meta name="description" content="Browse verified Iranian lawyers worldwide. Filter by country and practice area."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .search-bar {
+      background:#fff;border:1px solid var(--border);border-radius:16px;
+      padding:2rem;box-shadow:var(--shadow);
+      display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;
+      margin-top:2.5rem;animation:fade-up .7s .2s ease both;
+    }
+    .search-bar .fg { flex:1;min-width:200px; }
+    .search-bar .fg label { display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.07em; }
+    .search-bar input, .search-bar select {
+      width:100%;padding:.7rem 1rem;background:var(--cream);
+      border:1.5px solid var(--border);border-radius:9px;font-size:.95rem;
+      color:var(--ink);font-family:inherit;transition:border-color .2s,box-shadow .2s;outline:none;
+    }
+    .search-bar input:focus, .search-bar select:focus { border-color:var(--flame);box-shadow:0 0 0 3px rgba(232,64,28,.1); }
+    .results-meta { display:flex;align-items:center;justify-content:space-between;margin:2rem 0 1.25rem;flex-wrap:wrap;gap:.5rem; }
+    .results-meta .count { font-size:.9rem;color:var(--muted);font-weight:500; }
+    .results-meta .count strong { color:var(--ink); }
+    .listing-card {
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      padding:1.75rem 2rem;box-shadow:var(--shadow);
+      transition:transform .25s,box-shadow .25s;
+      position:relative;overflow:hidden;margin-bottom:1rem;
+    }
+    .listing-card::before {
+      content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+      background:linear-gradient(180deg,var(--flame),var(--gold));
+      transform:scaleY(0);transform-origin:top;transition:transform .35s ease;
+    }
+    .listing-card:hover { transform:translateX(4px);box-shadow:var(--shadow-lg); }
+    .listing-card:hover::before { transform:scaleY(1); }
+    .listing-name { font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.3rem; }
+    .listing-meta { font-size:.875rem;color:var(--muted);margin-bottom:.75rem; }
+    .listing-meta span+span::before { content:'&middot;';margin:0 .4rem;opacity:.5; }
+    .tags { display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.65rem; }
+    .tag { font-size:.78rem;font-weight:600;padding:.25rem .7rem;border-radius:20px;background:rgba(232,64,28,.08);color:var(--flame);border:1px solid rgba(232,64,28,.18); }
+    .listing-langs { font-size:.83rem;color:var(--muted); }
+    .verified-badge { display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:600;color:#1a8f4a;background:rgba(26,143,74,.08);padding:.2rem .65rem;border-radius:20px;border:1px solid rgba(26,143,74,.2);margin-top:.6rem; }
+    .verified-badge::before { content:'&#10003;';font-weight:800; }
+    .empty-state { text-align:center;padding:5rem 2rem;color:var(--muted); }
+    .empty-state .icon { font-size:3rem;margin-bottom:1rem;opacity:.5; }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a class="nav-logo" href="index.html"><span class="logo-icon">IL</span>Iran Lawyers</a>
+    <ul>
+      <li><a href="directory.html" class="active">Directory</a></li>
+      <li><a href="submit.html">Add a Listing</a></li>
+      <li><a href="principles.html">Our Promise</a></li>
+      <li><a href="verify.html">Verification</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <span class="page-header-label">Browse</span>
+    <h1>Directory</h1>
+    <p>Verified Iranian lawyers worldwide. All listings free and equal.</p>
+  </div>
+
+  <section class="content">
+    <div class="container">
+      <div class="search-bar">
+        <div class="fg">
+          <label>Search</label>
+          <input type="text" id="q" placeholder="Name, firm, or city&hellip;"/>
+        </div>
+        <div class="fg">
+          <label>Country</label>
+          <select id="country">
+            <option value="">All countries</option>
+            <option>Australia</option><option>Canada</option><option>France</option>
+            <option>Germany</option><option>Iran</option><option>Netherlands</option>
+            <option>Sweden</option><option>Turkey</option>
+            <option>United Arab Emirates</option><option>United Kingdom</option>
+            <option>United States</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Practice area</label>
+          <select id="area">
+            <option value="">All practice areas</option>
+            <option>Family law</option><option>Immigration</option><option>Commercial</option>
+            <option>Criminal</option><option>Property</option><option>Sanctions / OFAC</option>
+            <option>Asset recovery</option><option>Inheritance / estates</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="filterListings()">Search</button>
+      </div>
+
+      <div class="results-meta">
+        <span class="count" id="count"><strong>2</strong> listings</span>
+      </div>
+
+      <div id="listings">
+        <div class="listing-card reveal" data-country="United Kingdom" data-areas="Immigration,Family law">
+          <div class="listing-name">[Sample listing &mdash; replace with real data]</div>
+          <div class="listing-meta"><span>London, United Kingdom</span><span>Independent practice</span></div>
+          <div class="tags"><span class="tag">Immigration</span><span class="tag">Family law</span></div>
+          <div class="listing-langs">Languages: English, Farsi</div>
+          <div class="verified-badge">Credentials verified 2026-05-17</div>
+        </div>
+        <div class="listing-card reveal" data-country="Germany" data-areas="Commercial,Asset recovery">
+          <div class="listing-name">[Sample listing &mdash; replace with real data]</div>
+          <div class="listing-meta"><span>Frankfurt, Germany</span></div>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Asset recovery</span></div>
+          <div class="listing-langs">Languages: German, Farsi, English</div>
+          <div class="verified-badge">Credentials verified 2026-05-17</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Iran Lawyers &mdash; Free community directory. Not legal advice. &nbsp;&middot;&nbsp; <a href="about.html">About</a> &nbsp;&middot;&nbsp; <a href="principles.html">Principles</a></footer>
+
+  <script src="main.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    if (params.get('country')) {
+      const sel = document.getElementById('country');
+      [...sel.options].forEach(o => { if (o.value === params.get('country')) o.selected = true; });
+      filterListings();
+    }
+    function filterListings() {
+      const q = document.getElementById('q').value.toLowerCase();
+      const country = document.getElementById('country').value;
+      const area = document.getElementById('area').value;
+      const cards = document.querySelectorAll('.listing-card');
+      let visible = 0;
+      cards.forEach(c => {
+        const nameMatch = !q || c.querySelector('.listing-name').textContent.toLowerCase().includes(q) || c.querySelector('.listing-meta').textContent.toLowerCase().includes(q);
+        const countryMatch = !country || c.dataset.country === country;
+        const areaMatch = !area || c.dataset.areas.includes(area);
+        const show = nameMatch && countryMatch && areaMatch;
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('count').innerHTML = '<strong>' + visible + '</strong> listing' + (visible !== 1 ? 's' : '');
+    }
+  </script>
+</body>
+</html>
